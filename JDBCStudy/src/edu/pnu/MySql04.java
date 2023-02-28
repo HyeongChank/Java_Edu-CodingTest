@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
-public class JDBCClientMySQL2 {
+public class MySql04 {
 
 //	public int getColumnCount(ResultSet rs) throws Exception {
 //		return rs.getMetaData().getColumnCount();
@@ -31,11 +31,10 @@ public class JDBCClientMySQL2 {
 	public void StudyStatement(Connection con) throws Exception {
 
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("SELECT * FROM world.countrylanguage");
-		
+		ResultSet rs = st.executeQuery("select continent, count(*) from countrylanguage, country where language in (\"english\") and countrylanguage.CountryCode=country.Code group by continent");
+//		String result = rs.getString(1);
+//		System.out.println("rkkkkkkkkk" + result);
 		int colCount = printColumnName(rs);
-		
-//		int colCount = getColumnCount(rs);
 		int rowCount = 1;
 		while(rs.next()) {
 			for(int i = 1 ; i <= colCount ; i++) {
@@ -49,33 +48,10 @@ public class JDBCClientMySQL2 {
 		st.close();
 	}
 
-	public void StudyPrepareStatement(Connection con) throws Exception {
-		
-		PreparedStatement st = con.prepareStatement("select * from country where code=?");
-		//set
-		st.setString(1, "KOR");
-		ResultSet rs = st.executeQuery();
-
-//		printColumnName(rs);
-		
-		int colCount = printColumnName(rs);
-		int rowCount = 1;
-		while(rs.next()) {
-			for(int i = 1 ; i <= colCount ; i++) {
-				if (i == 1)	System.out.print((rowCount++) + ",");
-				else		System.out.print(",");
-				// rs.getString(컬럼명)
-				System.out.print(rs.getString(i));
-			}
-			System.out.println();
-		}
-		rs.close();
-		st.close();
-	}	
 	
 	public static void main(String[] args) throws Exception  {
 		//매서드를 사용하기 위해 객체 생성!!!!!!!!!!
-		JDBCClientMySQL2 cli = new JDBCClientMySQL2();
+		MySql04 cli = new MySql04();
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -85,8 +61,7 @@ public class JDBCClientMySQL2 {
 			cli.StudyStatement(con);
 			System.out.println();
 
-			System.out.println("<=== StudyPrepareStatement ===>");
-			cli.StudyPrepareStatement(con);
+
 		}		
 	}
 }
