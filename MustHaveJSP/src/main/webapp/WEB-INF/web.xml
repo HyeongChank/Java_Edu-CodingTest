@@ -9,4 +9,21 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <context-param>
+  <param-name>mysqlDriver</param-name>
+  <param-value>com.mysql.cj.jdbc.Driver</param-value>
+  </context-param>
+  <context-param>
+  <param-name>mysqlURL</param-name>
+  <param-value>jdbc:mysql://localhost:3306/musthave</param-value>
+  </context-param>
+  <context-param>
+  <param-name>mysqlId</param-name>
+  <param-value>musthave</param-value>
+  </context-param>
+  <context-param>
+  <param-name>mysqlPwd</param-name>
+  <param-value>jsk281988</param-value>
+  </context-param>
+  
 </web-app>
