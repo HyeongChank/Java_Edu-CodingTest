@@ -7,12 +7,14 @@
 <html>
 <head><title>JDBC</title></head>
 <body>
-<h2>회원 추가 테스트(executeUpdate() 사용)</h2>
+	<h2>회원 추가 테스트(executeUpdate() 사용)</h2>
+
+
 <%
 	JDBConnect jdbc = new JDBConnect();
-	String id = "test1";
-	String pass = "1111";
-	String name = "테스트 1 회원";
+	String id = "eom";
+	String pass = "9077";
+	String name = "testtt";
 	
 	String sql = "INSERT INTO member(id,pass,name) VALUES(?, ?, ?)";
 	PreparedStatement psmt = jdbc.con.prepareStatement(sql);

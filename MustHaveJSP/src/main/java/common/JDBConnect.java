@@ -12,12 +12,14 @@ public class JDBConnect {
 	public Connection con;
 	public Statement stmt;
 	public PreparedStatement psmt;
+	public PreparedStatement psmtt;
 	public ResultSet rs;
+
 	
 	public JDBConnect() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/world";
+			String url = "jdbc:mysql://localhost:3306/musthave";
 			String id = "musthave";
 			String pwd = "jsk281988";
 			con = DriverManager.getConnection(url, id, pwd);
@@ -66,6 +68,7 @@ public class JDBConnect {
 			if(rs !=null) rs.close();
 			if(stmt !=null) stmt.close();
 			if(psmt != null) psmt.close();
+//			if(psmtt != null) psmtt.close();
 			if(con != null) con.close();
 			
 			System.out.println("JDBC 자원 해제");
