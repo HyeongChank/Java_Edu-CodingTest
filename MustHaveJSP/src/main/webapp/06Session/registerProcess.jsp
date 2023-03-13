@@ -32,6 +32,10 @@ dao.close();
 <h2>pwd : <%=userPwd%></h2>
 <h2>nama : <%=userName%></h2>
 <h2>DB에 등록되었습니다</h2>
+
+<form>
+<input type = "button" value = "로그인 페이지 이동" onclick = "location.href = 'LoginForm.jsp'"></form>
+
 <!DOCTYPE html>
 <html>
 <head>

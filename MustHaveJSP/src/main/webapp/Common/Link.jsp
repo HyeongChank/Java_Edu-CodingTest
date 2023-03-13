@@ -6,7 +6,7 @@
     <% if (session.getAttribute("UserId") == null) { %>
     	<a href = "../06Session/LoginForm.jsp">로그인</a>
    	<% } else { %>
-   		<a href = "../06Session/Loginout.jsp">로그아웃</a>
+   		<a href = "../06Session/Logout.jsp">로그아웃</a>
   	<% }  %>
   		&nbsp;&nbsp;&nbsp;
   		<a href = "../08Board/List.jsp">게시판(페이징x)</a>
