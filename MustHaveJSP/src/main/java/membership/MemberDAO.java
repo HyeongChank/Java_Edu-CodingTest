@@ -1,5 +1,11 @@
 package membership;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+
+import javax.servlet.ServletContext;
+
 import common.JDBConnect;
 import model1.board.BoardDTO;
 
@@ -7,6 +13,9 @@ import model1.board.BoardDTO;
 public class MemberDAO extends JDBConnect{
 	public MemberDAO(String drv, String url, String id, String pw) {
 		super(drv, url, id, pw);
+	}
+	public MemberDAO(ServletContext application) {
+		super(application);
 	}
 	public MemberDTO getMemberDTO(String uid, String upass) {
 		MemberDTO dto = new MemberDTO();
@@ -59,6 +68,32 @@ public class MemberDAO extends JDBConnect{
 			e.printStackTrace();
 		}
 		return result;
+	}
+	public List<MemberDTO> selectList(Map<String,Object> map){
+		List<MemberDTO> bbs = new Vector<MemberDTO>();
+		String query = "select * from member";
+		if( map != null &&map.get("searchWord") != null) {
+			query += " WHERE " + map.get("searchField") + " "
+					+ "LIKE '%" + map.get("searchWord") + "%'";
+		}
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				dto.setId(rs.getString("id"));
+				dto.setPass(rs.getString("pass"));
+				dto.setName(rs.getString("name"));
+				
+				bbs.add(dto);
+			}
+		}
+		catch(Exception e) {
+			System.out.println("게시물 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return bbs;
 	}
 
 }

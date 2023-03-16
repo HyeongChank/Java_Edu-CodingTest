@@ -15,19 +15,21 @@ String id = application.getInitParameter("mysqlId");
 String pwd = application.getInitParameter("mysqlPwd");
 
 
-//dao 생성자
+//dao 객체 생성 및 driver, url, id, pwd 대입
 MemberDAO dao = new MemberDAO(driver, url, id, pwd);
 
-//dto
+//로그인한 정보 dao 의 getmemberDTO 매서드를 통해 select 쿼리 실행 준비
 MemberDTO memberDTO = dao.getMemberDTO(userId, userPwd);
 
 dao.close();
 
 
 if(memberDTO.getId() != null){
+	//getmemberDTO 쿼리 실행에서 id, name select해서 session에 값 저장
 	session.setAttribute("UserId", memberDTO.getId());
 	session.setAttribute("UserName", memberDTO.getName());
 	response.sendRedirect("LoginForm.jsp");
+	System.out.print(memberDTO.getName());
 	
 }
 

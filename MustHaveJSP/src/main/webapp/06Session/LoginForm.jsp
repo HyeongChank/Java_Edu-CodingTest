@@ -34,7 +34,8 @@
 	}
 
 	function funn(){
-		document.bgColor = "skyblue";
+		
+		document.bgColor = "blue";
 	}
 	</script>
 

@@ -35,7 +35,7 @@ public class BoardDAO extends JDBConnect{
 	public List<BoardDTO> selectList(Map<String, Object> map){
 		List<BoardDTO> bbs = new Vector<BoardDTO>();
 		String query = "select * from board";
-		if(map.get("searchWord") != null) {
+		if( map != null &&map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " "
 					+ "LIKE '%" + map.get("searchWord") + "%'";
 		

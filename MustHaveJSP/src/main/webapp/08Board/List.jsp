@@ -29,6 +29,9 @@ dao.close();
 <body>
 	<jsp:include page="../Common/Link.jsp"/>
 	<h2>목록 보기(List)</h2>
+	
+	<!-- form은 setAttribute 을 함. 이후에 입력값을 getAttribute으로 받을 수 있다. -->
+	
 	<form method = "get">
 	<table border = "1" width = "90%">
 	<tr>
