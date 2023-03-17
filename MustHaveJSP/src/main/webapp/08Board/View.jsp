@@ -68,5 +68,6 @@ function deletePost(){
 		</tr>
 				
 	</table>
+</form>
 </body>
 </html>
