@@ -98,7 +98,7 @@ public class MVCBoardDAO extends JDBConnect{
 		MVCBoardDTO dto = new MVCBoardDTO();
 		String query = "select * from mvcboard where idx =?";
 		try {
-			psmt.getConnection().prepareStatement(query);
+			psmt = con.prepareStatement(query);
 			psmt.setString(1, idx);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
@@ -145,6 +145,63 @@ public class MVCBoardDAO extends JDBConnect{
 			psmt.executeUpdate();
 		}
 		catch(Exception e) {
+		}
+		
 	}
+	public boolean confirmPassword(String pass, String idx) {
+		boolean isCorr = true;
+		try {
+			String sql = "select count(*) from mvcboard where pass = ? and idx = ?";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, pass);
+			psmt.setString(2, idx);
+			rs = psmt.executeQuery();
+			rs.next();
+			if(rs.getInt(1)==0) {
+				isCorr = false;
+			}
+		}
+		catch(Exception e) {
+			isCorr = false;
+			e.printStackTrace();
+		}
+		return isCorr;
+	}
+	public int deletePost(String idx) {
+		int result =0;
+		try {
+			String query = "delete from mvcboard where idx = ?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, idx);
+			result = psmt.executeUpdate();
+		}
+		catch(Exception e) {
+			System.out.println("게시물 삭제 중 예외 발생");
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public int updatePost(MVCBoardDTO dto) {
+		int result =0;
+		try {
+			String query = "update mvcboard "
+						+ " set title=?, name=?, content=?, ofile=?, sfile=? "
+						+ " where idx = ? and pass =?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getName());
+			psmt.setString(3, dto.getContent());
+			psmt.setString(4, dto.getOfile());
+			psmt.setString(5, dto.getSfile());
+			psmt.setString(6, dto.getIdx());
+			psmt.setString(7, dto.getPass());
+			
+			result = psmt.executeUpdate();
+		
+		}
+		catch(Exception e) {
+			
+		}
+		return result;
 	}
 }

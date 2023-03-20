@@ -70,7 +70,7 @@ function validateForm(form){
 				<td colspan = "2" align = "center">
 					<button type = "submit">작성 완료</button>
 					<button type = "reset">다시 입력</button>
-					<button type = "button" onclick = "location.href = '../mvcboard/List.do';">목록보기</button>
+					<button type = "button" onclick = "location.href = '../mvcboard/list.do';">목록보기</button>
 				</td>
 			</tr>
 			

@@ -21,6 +21,6 @@ public class ViewController extends HttpServlet{
 		dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
 		
 		req.setAttribute("dto", dto);
-		req.getRequestDispatcher("/14MVCBoard/View.jsp").forward(req, resp);
+		req.getRequestDispatcher("../14MVCBoard/View.jsp").forward(req, resp);
 	}
 }
