@@ -9,14 +9,24 @@
 </head>
 <body>
 
-	<form name = "mouseclick" method = "get" action = "../eltest/write.do" enctype = "multipart/form-data">
+	<form name = "mouseclick" method = "get" action = "../test/mouselocation.do" enctype = "multipart/form-data">
 		<table border ="1" width = "90%">
 			<tr>
-				<td>mouse location 지정</td>
-			<tr>
+				<td width = "10px">첫번째 좌표</td>
 				<td colspan = "2" align = "center">
-					<button type = "submit">첫번쨰 마우스 좌표 지정</button>
+					<button type = "submit" name = "첫번째 마우스 좌표 지정" ></button>
 				</td>
+			</tr>
+		</table>
+	</form>
+	<form name = "mouseclick2" method = "get" action = "../test/mouselocation.do" enctype = "multipart/form-data">
+		<table border ="1" width = "90%">
+			<tr>
+				<td width = "10px">두번째 좌표</td>
+				<td colspan = "2" align = "center">
+					<button type = "submit" name = "두번째 마우스 좌표 지정" ></button>
+				</td>
+			</tr>
 		</table>
 	</form>
 
