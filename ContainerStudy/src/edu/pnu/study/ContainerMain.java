@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import edu.pnu.study.operator.MyOperatorContainerT;
+import edu.pnu.study.operator.MyOperatorContainer;
 
 public class ContainerMain {
 
@@ -12,7 +12,7 @@ public class ContainerMain {
 	private boolean threadCheck = true;
 	// Operator 문자열 저장 배열
 	private ArrayList<String> list = new ArrayList<>();
-	private MyOperatorContainerT moc = new MyOperatorContainerT();
+	private MyOperatorContainer moc = new MyOperatorContainer();
 	private static HashMap<String,String> hm = new HashMap<>();
 	
 	public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class ContainerMain {
 
 		// 일정 시간동안 사용되지 않고 있는 Operator 객체를 제거하는 Thread
 		Thread th = new Thread(() -> {
-			MyOperatorContainerT moc = cm.getContainer();
+			MyOperatorContainer moc = cm.getContainer();
 
 			// 메인 Thread가 종료하면 같이 종료되도록 종료 조건 변수(threadCheck)를 확인한다.
 			while(cm.getThreadCheck()) {
@@ -50,7 +50,7 @@ public class ContainerMain {
 		System.out.println("프로그램을 종료합니다.");
 	}
 	
-	public MyOperatorContainerT getContainer() {
+	public MyOperatorContainer getContainer() {
 		return moc;
 	}
 	

@@ -12,13 +12,6 @@ public class MyOperatorContainer {
 	public MyOperator getOperator(String cmd) {
 		// 컨테이너에서 오퍼레이터 객체를 검색한다.
 				
-//		for (MyOperator mo : container) {
-//			if (mo.getCmd().equals(cmd)) {
-//				// 객체가 있으면 현재 시간을 마지막 사용 시간으로 설정하고 리턴
-//				mo.setLastUsedTime(Calendar.getInstance());
-//				return mo;
-//			}
-//		}
 		if(hm2.containsKey(cmd)) {
 			hm2.get(cmd).setLastUsedTime(Calendar.getInstance());
 			return hm2.get(cmd);

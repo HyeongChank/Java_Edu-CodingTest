@@ -16,10 +16,12 @@ import edu.pnu.service.BoardService;
 public class BoardController {
 	
 	@Autowired
-	BoardService boardservice = new BoardService();
+	private BoardService boardService;
+//	BoardService boardservice = new BoardService();
 	
 	public BoardController() {
 		System.out.println("===> BoardController 생성");
+
 	}
 	@GetMapping("/hello")
 	public String hello(String name) {
@@ -34,12 +36,11 @@ public class BoardController {
 	public Person getPerson() {
 		return new Person("홍길동", 2000, "dkf", "선물");
 	}
-//	@GetMapping("/getPersons")
-//	public List<Person> getPersons(){
-//		List<Person> list = new ArrayList<>();
-//		list.add(new Person("홍길동", 2000, "dkf", "선물"));
-//		list.add(new Person("홍길동", 2000, "dkf", "선물"));
-//		return list;
-//	}
+	@GetMapping("/getPersons")
+	public List<Person> getPersons(){
+		BoardService boardService = new BoardService();
+		return boardService.getPersons();
+		
+	}
 
 }
