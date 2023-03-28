@@ -48,25 +48,36 @@ public class ClickPoints {
         	}
         }
         System.out.println(list);
-        int x1=list.pollFirst();
-        int y1=list.pollFirst();
-        int x2=list.pollFirst();
-        int y2=list.pollFirst();
-        int delay = 1000; // 클릭 사이의 딜레이 (1초)
-        int delay2 = 3000;
-        while(true) {
-	        robot.mouseMove(x1, y1); // 첫번째 위치로 이동
-	        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 누름
-	        robot.delay(delay); // 딜레이
-	        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 뗌
+        int ta =0;
+        while(ta<list.size()) {
+        	
+	        int x1=list.pollFirst();
+	        int y1=list.pollFirst();
+	        int x2=list.pollFirst();
+	        int y2=list.pollFirst();
+	        int x3=list.pollFirst();
+	        int y3=list.pollFirst();
+	        int delay = 1000; // 클릭 사이의 딜레이 (1초)
+	        int delay2 = 300000;
+	        while(true) {
+		        robot.mouseMove(x1, y1); // 첫번째 위치로 이동
+		        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 누름
+		        robot.delay(delay); // 딜레이
+		        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 뗌
+		        robot.delay(delay); // 딜레이	
 	
-	        robot.delay(delay2); // 딜레이
-	
-	        robot.mouseMove(x2, y2); // 두번째 위치로 이동
-	        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 누름
-	        robot.delay(delay); // 딜레이
-	        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 뗌
-
+		        robot.mouseMove(x2, y2); // 두번째 위치로 이동
+		        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 누름
+		        robot.delay(delay); // 딜레이
+		        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 뗌
+		        robot.delay(delay2); // 딜레이
+		        
+		        robot.mouseMove(x3, y3); // 두번째 위치로 이동
+		        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 누름
+		        robot.delay(delay); // 딜레이
+		        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); // 마우스 왼쪽 버튼 뗌
+		        robot.delay(delay2); // 딜레
+	        }
         }
    }
 }
