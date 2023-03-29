@@ -1,7 +1,10 @@
 package test;
 
+import java.awt.AWTException;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -27,34 +30,22 @@ public class mouselocation extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Integer> ls = new ArrayList<>();
+		HttpSession session = req.getSession();
+//		session.invalidate();
         Point p;
+ 
         p = MouseInfo.getPointerInfo().getLocation();
-        x = (int) p.getX();
-        y = (int) p.getY();
-        System.out.println("Clicked mouse position: (" + x + ", " + y + ")");
-//        ls.add(x);
-//        ls.add(y);
-        HttpSession session = req.getSession();
-//        session.setAttribute("mousePositions", ls);
-        
+    	x = (int) p.getX();
+    	y = (int) p.getY();
+    	System.out.println("Clicked mouse position: (" + x + ", " + y + ")");
+    	
     //session 에 넣으면 계속 남아있음 , request에 넣으면 사라짐
 		session.setAttribute("x", x);
 		session.setAttribute("y", y);
-		
-		
+
+      		
 		req.getRequestDispatcher("../01macro/mouseclick2.jsp").forward(req, resp);
 	}
-//	public static int [] mouselocation() {
-//		int [] array = new int[2];
-//        Point p;
-//        p = MouseInfo.getPointerInfo().getLocation();
-//        x = (int) p.getX();
-//        y = (int) p.getY();
-//        System.out.println("Clicked mouse position: (" + x + ", " + y + ")");
-//		array[0] = x;
-//		array[1] = y;
-//		return array;
-//	}
+
 	
 }
