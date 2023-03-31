@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 </head>
 <script>
@@ -25,8 +26,17 @@ function validateForm(form){
 		성 명 : <input type = "text" name = "name"/><br/>
 		연락처 : <input type = "tel" name = "tel"/><br/>
 		남기는 말 : <input type = "text" name = "ment"/><br/>
-		<button type = "submit">버튼</button>
+		<label for= "score">만족도</label>
+		<select name = "score-m" id = "score">
+			<option value = "5">5</option>
+			<option value = "5">4</option>
+			<option value = "5">3</option>
+			<option value = "5">2</option>
+			<option value = "5">1</option>
+		</select><br/>
+		<button type = "submit">등록하기</button>
 	</form>
+	<h2>${num }</h2>
 
 
 </body>

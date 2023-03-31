@@ -6,29 +6,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+	table, tr, td{
+		border : 1px solid black;
+		border-collapse : collapse;
+		padding : 10px;
+		margin : 10px;
+		text-align : center;
+		background-color : blue;
+		color : white;
+		height : 30px;
+	} 
+	button{
+		heigth : 50px;
+	}
+</style>
 <title>Insert title here</title>
 <--종료가 제대로 먹도록 보완하고, 내부로직, session 초기화, css 까지 마무리해야함-->
 </head>
-<style>
-	body{
-		background-color : "000050"";
-	}
-</style>
+
 <body>
 
 	<form name = "mouseclick" method = "get" action = "../test/mouselocation.do" enctype = "multipart/form-data">
-		<table border ="1" width = "80%">
+		<table width = "80%">
 			<tr>
-				<td style="width: 40%; text-align: center; background-color: skyblue; color: white;">첫번째 좌표</td>
-				<td colspan = "2" align = "center" style width="20%;">
+				<td style="width: 40%;">첫번째 좌표</td>
+				<td colspan = "2" style width="20%;">
    	  		    	<button type="button" onclick="delayedSubmit()">버튼</button>
    			    </td>
-   			    <td style width="20%;" align = "center">
+   			    <td style width="20%;">
     		    	<div id="timer">0초</div>
     		    </td>
 			</tr>
-
-   			
 		</table>
 	</form>
 
@@ -84,12 +93,24 @@
 	</script>
 
 
-
-	<form name = "mouseclick2" method = "get" action = "../test/mouselocation2.do" enctype = "multipart/form-data">
-		<table border ="1" width = "90%">
+	<!-- <form name = "mouseclick" method = "get" action = "../test/mouselocation.do" enctype = "multipart/form-data">
+		<table width = "80%">
 			<tr>
-				<td>두번째 좌표</td>
-				<td colspan = "2" align = "center">
+				<td style="width: 40%;">첫번째 좌표</td>
+				<td colspan = "2" style width="20%;">
+   	  		    	<button type="button" onclick="delayedSubmit()">버튼</button>
+   			    </td>
+   			    <td style width="20%;">
+    		    	<div id="timer">0초</div>
+    		    </td>
+			</tr>
+		</table>
+	</form> -->
+	<form name = "mouseclick2" method = "get" action = "../test/mouselocation2.do" enctype = "multipart/form-data">
+		<table width = "80%">
+			<tr>
+				<td style = "width : 40%;">두번째 좌표</td>
+				<td colspan = "2">
    	  		    <button type="button" onclick="delayedSubmit2()">버튼</button>
    			    </td>
    			    <td>
